@@ -2,8 +2,13 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass amsart
 \use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -25,6 +30,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -77,8 +83,8 @@ Linearizing deformations of the harmonic source-filter model with the spiral
 Vincent Lostanlen
 \end_layout
 
-\begin_layout Standard
-A classical model for voised speech production consists in the convolution
+\begin_layout Abstract
+A classical model for voiced speech production consists in the convolution
  of a harmonic glottal source 
 \begin_inset Formula $e(t)$
 \end_inset
@@ -90,29 +96,411 @@ A classical model for voised speech production consists in the convolution
 .
  Introducing indepedent deformations to both components brings realistic
  variability to pitch and spectral envelope.
+ We study the decomposition of the deformed source-filter model in the spiral
+ scattering transform.
+\end_layout
+
+\begin_layout Subsection*
+Deformations of the harmonic comb
+\end_layout
+
+\begin_layout Standard
+A 
+\begin_inset Formula $2\pi$
+\end_inset
+
+-periodic Dirac pulse train is defined as 
+\begin_inset Formula 
+\[
+e(t)=2\pi\sum_{n=-\infty}^{+\infty}\delta(t-2\pi n).
+\]
+
+\end_inset
+
+The Poisson summation formula states that the Fourier transform of 
+\begin_inset Formula $e(t)$
+\end_inset
+
+ is a Dirac pulse train of fundamental frequency 
+\begin_inset Formula $1$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\hat{e}(\omega)=\int_{-\infty}^{+\infty}e(t)\exp(-\mathrm{i}\omega t)\,\mathrm{d}\omega=\sum_{k=-\infty}^{+\infty}\exp(\mathrm{i}k\omega).
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $\theta\in\mathcal{C}^{3}(\mathbb{R})$
+\end_inset
+
+ a time warp function whose first derivative 
+\begin_inset Formula $\dot{\theta}(t)$
+\end_inset
+
+ is positive for all 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+.
+ We defined a warped source as 
+\begin_inset Formula 
+\[
+e_{\theta}(t)=(e\circ\theta)(t)=2\pi\sum_{n=-\infty}^{+\infty}\delta(\theta(t)-2\pi n).
+\]
+
+\end_inset
+
+Observe that 
+\begin_inset Formula $\dot{\theta}(t)$
+\end_inset
+
+ is the fundamental frequency of 
+\begin_inset Formula $e_{\theta}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Deformations of the broadband filter
 \end_layout
 
 \begin_layout Standard
 Let 
-\begin_inset Formula 
-\[
-e(t)=\sum_{n=-\infty}^{+\infty}\delta(t-2\pi n)
-\]
-
+\begin_inset Formula $h(t)$
 \end_inset
 
-a Dirac pulse train of 
+ be the impulse response of a broadband filter.
+ Its Fourier transform 
+\begin_inset Formula $\hat{h}(\omega)$
+\end_inset
+
+ is the spectral envelope, and is related to the properties of the vocal
+ tract in speech production.
+ Again, we define a time warp funtion 
+\begin_inset Formula $\nu\in\mathcal{C}^{3}(\mathbb{R})$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dot{\nu}(t)>0$
+\end_inset
+
+ for all 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+.
+ Its derivative 
+\begin_inset Formula $\dot{\nu}(t)$
+\end_inset
+
+ is a local dilation factor for the spectral envelope 
+\begin_inset Formula $\hat{h}(\omega)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Deformed source-filter model
+\end_layout
+
+\begin_layout Standard
+We extend the classical source filter model 
+\begin_inset Formula $[e\ast h](t)$
+\end_inset
+
+ by warping independently the source and the filter before combining them:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-x(t)=[e_{\theta}\ast h_{\nu}](t)
+x(t)=[e_{\theta}\ast h_{\nu}](t).
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Main result
+\end_layout
+
+\begin_layout Standard
+We will show that, for 
+\begin_inset Formula $\dot{\theta}(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{\nu}(t)$
+\end_inset
+
+ reasonably regular over the support of first-order wavelets 
+\begin_inset Formula $\psi_{\lambda_{1}}(t)$
+\end_inset
+
+, the local maxima of spiral scattering coefficients 
+\begin_inset Formula $x_{2}(t,\log\lambda_{1},\log\lambda_{2})$
+\end_inset
+
+ are clustered on a plane in the 
+\begin_inset Formula $(\alpha,\beta,\gamma)$
+\end_inset
+
+ space of scattering frequencies, where:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ is the frequency along time, in Hertz.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta$
+\end_inset
+
+ is the 
+\begin_inset Quotes eld
+\end_inset
+
+quefrency
+\begin_inset Quotes erd
+\end_inset
+
+ along chromas, in cycles per octaves.
+ Typically, 
+\begin_inset Formula $\vert\beta\vert\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is the 
+\begin_inset Quotes eld
+\end_inset
+
+quefrency
+\begin_inset Quotes erd
+\end_inset
+
+ across octaves, in cycles per octaves.
+ Typically, 
+\begin_inset Formula $\vert\gamma\vert\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This plane satisfies the Cartesian equation
+\begin_inset Formula 
+\[
+\alpha+\dfrac{\ddot{\theta}(t)}{\dot{\theta}(t)}\beta+\dfrac{\ddot{\nu}(t)}{\dot{\nu}(t)}\gamma=0.
+\]
+
+\end_inset
+
+This result means that harmonic sounds overlapping both in time and frequency
+ could be resolved according to their respective source-filter velocities.
+\end_layout
+
+\begin_layout Subsection*
+Outline of the proof
+\end_layout
+
+\begin_layout Standard
+Our proof is organized as follows:
+\end_layout
+
+\begin_layout Enumerate
+An analytic wavelet transform allows to linearize the filter deformation
+ 
+\begin_inset Formula $\nu(t)$
+\end_inset
+
+ and factorizes the convolution between the filter and the wavelet as a
+ product.
+\end_layout
+
+\begin_layout Enumerate
+Similarly, the wavelet transform linearizes the source deformation 
+\begin_inset Formula $\theta(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Provided that the the quality factor 
+\begin_inset Formula $Q$
+\end_inset
+
+ of the wavelet filterbank is high enough, partials in the harmonic comb
+ 
+\begin_inset Formula $\hat{e}(\omega)$
+\end_inset
+
+ do not interfere.
+ Consequently, the harmonic comb may locally (in frequency) be replaced
+ by a modulated sine wave.
+\end_layout
+
+\begin_layout Enumerate
+Combining the two previous results yields a factorization of deformed source
+ and deformed filter in the scalogram.
+\end_layout
+
+\begin_layout Enumerate
+The harmonicity property implies that the convolution along chromas only
+ applies to the deformed source.
+ In turn, the spectral smoothness property implies that the convolution
+ across octaves only applies to the deformed filter.
+ 
+\end_layout
+
+\begin_layout Enumerate
+We use the wavelet ridge theorem to give the phase of the deformed source
+ after convolution along chromas.
+ The same theorem applies to the deformed filter after convolution across
+ octaves.
+\end_layout
+
+\begin_layout Enumerate
+The two phase functions extracted in the previous part add up.
+ Hence, after convolution along chromas and across octaves, the analytic
+ amplitude and instantaneous frequency along time are available in closed
+ form.
+\end_layout
+
+\begin_layout Enumerate
+We use the wavelet ridge theorem a third time to localize in time the relative
+ variations of the two instantaneous frequencies.
+\end_layout
+
+\begin_layout Enumerate
+The Cartesian equation is derived from the extraction of spiral wavelet
+ ridges.
+\end_layout
+
+\begin_layout Subsection*
+Wavelet filter bank
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\hat{g}(\omega)$
+\end_inset
+
+ be a real symmetric window of bandwidth 
+\begin_inset Formula $1/Q$
+\end_inset
+
+ and unit norm.
+ An approximately analytic wavelet is constructed by multiplying 
+\begin_inset Formula $g(t)$
+\end_inset
+
+ with a sine wave of frequency 
+\begin_inset Formula $1$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\psi(t)=g(t)\exp(\mathrm{i}t).
+\]
+
+\end_inset
+
+Dilated wavelets are written as
+\begin_inset Formula 
+\[
+\psi_{\lambda_{1}}(t)=\lambda_{1}\psi(\lambda_{1}t).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The role of the wavelet transform is to localize the power spectrum of 
+\begin_inset Formula $e_{\theta}(t)$
+\end_inset
+
+ along short-term windows 
+\begin_inset Formula $\psi_{\lambda_{1}}(t)$
+\end_inset
+
+ upon which both time warps 
+\begin_inset Formula $\theta(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu(t)$
+\end_inset
+
+ can be linearized.
+\end_layout
+
+\begin_layout Subsection*
+Source-filter factorization of the scalogram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{1}(t,\log\lambda_{1})=\zeta(\log\lambda_{1}-\log\dot{\theta}(t))\times\tilde{h}()
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem*
+Let 
+\begin_inset Formula $f(t)=a(t)\cos\theta(t)$
+\end_inset
+
+.
+ The wavelet transform of 
+\begin_inset Formula $f$
+\end_inset
+
+ is equal to
+\begin_inset Formula 
+\[
+f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\theta(t))\times\left(\hat{g}\left(1-\dfrac{\dot{\theta}(t)}{\lambda_{1}}\right)+\varepsilon(t,\lambda_{1})\right),
+\]
+
+\end_inset
+
+where the corrective term satisfies
+\begin_inset Formula 
+\[
+\Vert\varepsilon(t,\lambda_{1})\Vert_{\infty}\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{\theta}(t)}{\lambda_{1}^{2}}\right\Vert _{\infty}+\sup_{\vert\omega\vert\geq\vert\dot{\theta}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert.
+\]
+
+\end_inset
+
+The fourth term is negligible if 
+\begin_inset Formula $\dot{\theta}(t)\geq\lambda_{1}/Q$
+\end_inset
+
+.
 \end_layout
 
 \end_body
