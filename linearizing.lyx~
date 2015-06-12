@@ -117,6 +117,11 @@ e(t)=2\pi\sum_{n=-\infty}^{+\infty}\delta(t-2\pi n).
 
 \end_inset
 
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 The Poisson summation formula states that the Fourier transform of 
 \begin_inset Formula $e(t)$
 \end_inset
@@ -130,6 +135,11 @@ The Poisson summation formula states that the Fourier transform of
 \[
 \hat{e}(\omega)=\int_{-\infty}^{+\infty}e(t)\exp(-\mathrm{i}\omega t)\,\mathrm{d}\omega=\sum_{k=-\infty}^{+\infty}\exp(\mathrm{i}k\omega).
 \]
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -325,36 +335,73 @@ Our proof is organized as follows:
 \end_layout
 
 \begin_layout Enumerate
-An analytic wavelet transform allows to linearize the filter deformation
+Assuming that the spectral envelope is almost constant over the frequential
+ support of the wavelet, the convolution between 
+\begin_inset Formula $h_{\nu}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi_{\lambda_{1}}$
+\end_inset
+
+ can be factorized as a product between the Fourier transform 
+\begin_inset Formula $\hat{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi_{\lambda_{1}}$
+\end_inset
+
+, up to a phase shift.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Interestingly, this result is a 
+\emph on
+swapped
+\emph default
+ formulation
+\emph on
  
-\begin_inset Formula $\nu(t)$
+\emph default
+of the wavelet ridge theorem.
+ Whereas the wavelet ridge theorem assumes that the signal has slowly varying
+ amplitude and fundamental frequency over the support of the wavelet, here
+ we assume that the wavelet has slowly varying amplitude over the support
+ of the signal.
+ Henceforth, the roles of 
+\begin_inset Quotes eld
 \end_inset
 
- and factorizes the convolution between the filter and the wavelet as a
- product.
+analytic signal
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+analytic wavelet
+\begin_inset Quotes erd
+\end_inset
+
+ are interchanged.
+ The form of the result remains the same.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
-Similarly, the wavelet transform linearizes the source deformation 
-\begin_inset Formula $\theta(t)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Provided that the the quality factor 
+The 
 \begin_inset Formula $Q$
 \end_inset
 
- of the wavelet filterbank is high enough, partials in the harmonic comb
- 
-\begin_inset Formula $\hat{e}(\omega)$
-\end_inset
-
- do not interfere.
- Consequently, the harmonic comb may locally (in frequency) be replaced
- by a modulated sine wave.
+ lowest partials in the harmonic comb do not interfere.
+ Thus, we may apply the wavelet ridge theorem to each of them independently.
 \end_layout
 
 \begin_layout Enumerate
@@ -392,6 +439,79 @@ We use the wavelet ridge theorem a third time to localize in time the relative
 \begin_layout Enumerate
 The Cartesian equation is derived from the extraction of spiral wavelet
  ridges.
+\end_layout
+
+\begin_layout Subsection*
+Assumptions
+\end_layout
+
+\begin_layout Standard
+We work under the following assumptions:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $Q$
+\end_inset
+
+ large enough to discriminate non-negligible partials,
+\end_layout
+
+\begin_layout Enumerate
+slowly varying source: 
+\begin_inset Formula $\Vert\ddot{\theta}/\dot{\theta}\Vert_{\infty}\ll\lambda_{1}/Q$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+slowly varying filter: 
+\begin_inset Formula $\Vert\ddot{\nu}/\dot{\nu}\Vert_{\infty}\ll\lambda_{1}/Q$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+spectral envelope is almost constant over one semitone: 
+\begin_inset Formula $\Vert\dot{\hat{h}}/\hat{h}\Vert_{\infty}\ll Q/\lambda_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+spectral envelope is almost linear over one octave.
+\end_layout
+
+\begin_layout Standard
+In addition, we use the fact that harmonicity implies self-similarity: 
+\begin_inset Formula $e(t)=e(2^{n}t)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\vert t\vert>2\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ By means of the Poisson summation formula, his rewrites in the Fourier
+ domain as 
+\begin_inset Formula $\hat{e}(\omega)=\hat{e}(2^{j}\omega)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\vert\omega\vert>1$
+\end_inset
+
+ and 
+\begin_inset Formula $j\in\mathbb{N}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection*
@@ -456,12 +576,18 @@ The role of the wavelet transform is to localize the power spectrum of
 \end_layout
 
 \begin_layout Subsection*
-Source-filter factorization of the scalogram
+Wavelet ridge theorem
+\end_layout
+
+\begin_layout Standard
+The following theorem provides an approximate closed form for the wavelet
+ transform of a real analytic signal whose amplitude and instantaneous frequency
+ have slow variations.
 \end_layout
 
 \begin_layout Theorem*
 Let 
-\begin_inset Formula $f(t)=a(t)\cos\theta(t)$
+\begin_inset Formula $f(t)=a(t)\cos\varphi(t)$
 \end_inset
 
 .
@@ -472,7 +598,7 @@ Let
  is equal to
 \begin_inset Formula 
 \[
-f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\theta(t))\times\left(\hat{g}\left(1-\dfrac{\dot{\theta}(t)}{\lambda_{1}}\right)+\varepsilon(t,\lambda_{1})\right),
+f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\varphi(t))\times\left(\hat{g}\left(1-\dfrac{\dot{\varphi}(t)}{\lambda_{1}}\right)+\varepsilon(t,\lambda_{1})\right),
 \]
 
 \end_inset
@@ -480,13 +606,13 @@ f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\theta(t))\times\left(
 where the corrective term satisfies
 \begin_inset Formula 
 \[
-\Vert\varepsilon(t,\lambda_{1})\Vert_{\infty}\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{\theta}(t)}{\lambda_{1}^{2}}\right\Vert _{\infty}+\sup_{\vert\omega\vert\geq\vert\dot{\theta}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert.
+\Vert\varepsilon(t,\lambda_{1})\Vert_{\infty}\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{\varphi}(t)}{\lambda_{1}^{2}}\right\Vert _{\infty}+\sup_{\vert\omega\vert\geq\vert\dot{\varphi}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert.
 \]
 
 \end_inset
 
 The fourth term is negligible if 
-\begin_inset Formula $\dot{\theta}(t)\geq\lambda_{1}/Q$
+\begin_inset Formula $\dot{\text{\varphi}}(t)\geq\lambda_{1}/Q$
 \end_inset
 
 .
