@@ -498,7 +498,7 @@ In addition, we use the fact that harmonicity implies self-similarity:
 \end_inset
 
 .
- By means of the Poisson summation formula, his rewrites in the Fourier
+ By means of the Poisson summation formula, this rewrites in the Fourier
  domain as 
 \begin_inset Formula $\hat{e}(\omega)=\hat{e}(2^{j}\omega)$
 \end_inset
@@ -616,6 +616,75 @@ The fourth term is negligible if
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+The proof can be found in Mallat's Wavelet Tour, section 4.4.
+\end_layout
+
+\begin_layout Subsection
+Linearization of filter deformations (or the swapped wavelet ridge theorem)
+\end_layout
+
+\begin_layout Standard
+The first-order Taylor series expansion of 
+\begin_inset Formula $\nu$
+\end_inset
+
+over the support of 
+\begin_inset Formula $\psi_{\lambda_{1}}$
+\end_inset
+
+ leads to an approximate expression of the convolution 
+\begin_inset Formula $[h_{\nu}\ast\psi_{\lambda_{1}}](t)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\nu(t)-\dot{\nu}(t)u)\psi_{\lambda_{1}}(u)\,\mathrm{d}u
+\]
+
+\end_inset
+
+The linear change of variables 
+\begin_inset Formula $u^{\prime}=\dot{\nu}(t)\times u$
+\end_inset
+
+ yields
+\begin_inset Formula 
+\[
+[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\nu(t)-u^{\prime})\psi_{\lambda_{1}}\left(\dfrac{u^{\prime}}{\dot{\nu}(t)}\right)\,\dfrac{\mathrm{d}u^{\prime}}{\dot{\nu}(t)}.
+\]
+
+\end_inset
+
+The dilation factor 
+\begin_inset Formula $\dot{\nu}(t)$
+\end_inset
+
+ may be turned into a translation in the log-frequency domain.
+ Indeed we have:
+\end_layout
+
+\begin_layout Subsection
+Linearization of source deformations
+\end_layout
+
+\begin_layout Subsection
+Source-filter factorization in the scalogram
+\end_layout
+
+\begin_layout Subsection
+Harmonicity and spectral smoothness properties
+\end_layout
+
+\begin_layout Subsection
+Extraction of instantaneous frequencies
+\end_layout
+
+\begin_layout Subsection
+Cartesian equation
 \end_layout
 
 \end_body

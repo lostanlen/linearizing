@@ -618,5 +618,82 @@ The fourth term is negligible if
 .
 \end_layout
 
+\begin_layout Standard
+The proof can be found in Mallat's Wavelet Tour, section 4.4.
+\end_layout
+
+\begin_layout Subsection
+Linearization of filter deformations (or the swapped wavelet ridge theorem)
+\end_layout
+
+\begin_layout Standard
+The first-order Taylor series expansion of 
+\begin_inset Formula $\nu$
+\end_inset
+
+over the support of 
+\begin_inset Formula $\psi_{\lambda_{1}}$
+\end_inset
+
+ leads to an approximate expression of the convolution 
+\begin_inset Formula $[h_{\nu}\ast\psi_{\lambda_{1}}](t)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\nu(t)-\dot{\nu}(t)u)\psi_{\lambda_{1}}(u)\,\mathrm{d}u
+\]
+
+\end_inset
+
+The linear change of variables 
+\begin_inset Formula $u^{\prime}=\dot{\nu}(t)\times u$
+\end_inset
+
+ yields
+\begin_inset Formula 
+\[
+[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\nu(t)-u^{\prime})\psi_{\lambda_{1}}\left(\dfrac{u^{\prime}}{\dot{\nu}(t)}\right)\,\dfrac{\mathrm{d}u^{\prime}}{\dot{\nu}(t)}.
+\]
+
+\end_inset
+
+The dilation factor 
+\begin_inset Formula $\dot{\nu}(t)$
+\end_inset
+
+ may be turned into a translation in the log-frequency domain.
+ Indeed we have:
+\begin_inset Formula 
+\[
+[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\dfrac{1}{2\pi}\int_{\infty}^{+\infty}\widehat{h}(\omega)\widehat{\psi_{\dot{\nu(t)}\lambda_{1}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Linearization of source deformations
+\end_layout
+
+\begin_layout Subsection
+Source-filter factorization in the scalogram
+\end_layout
+
+\begin_layout Subsection
+Harmonicity and spectral smoothness properties
+\end_layout
+
+\begin_layout Subsection
+Extraction of instantaneous frequencies
+\end_layout
+
+\begin_layout Subsection
+Cartesian equation
+\end_layout
+
 \end_body
 \end_document
