@@ -85,11 +85,11 @@ Vincent Lostanlen
 
 \begin_layout Abstract
 A classical model for voiced speech production consists in the convolution
- of a harmonic glottal source 
+ of a harmonic glottal source
 \begin_inset Formula $e(t)$
 \end_inset
 
- with a vocal tract filter 
+ with a vocal tract filter
 \begin_inset Formula $h(t)$
 \end_inset
 
@@ -109,7 +109,7 @@ A
 \begin_inset Formula $2\pi$
 \end_inset
 
--periodic Dirac pulse train is defined as 
+-periodic Dirac pulse train is defined as
 \begin_inset Formula 
 \[
 e(t)=2\pi\sum_{n=-\infty}^{+\infty}\delta(t-2\pi n).
@@ -122,11 +122,11 @@ e(t)=2\pi\sum_{n=-\infty}^{+\infty}\delta(t-2\pi n).
 status collapsed
 
 \begin_layout Plain Layout
-The Poisson summation formula states that the Fourier transform of 
+The Poisson summation formula states that the Fourier transform of
 \begin_inset Formula $e(t)$
 \end_inset
 
- is a Dirac pulse train of fundamental frequency 
+ is a Dirac pulse train of fundamental frequency
 \begin_inset Formula $1$
 \end_inset
 
@@ -156,10 +156,10 @@ Let
 \end_inset
 
 .
- We defined a warped source as 
+ We defined a warped source as
 \begin_inset Formula 
 \[
-e_{\theta}(t)=(e\circ\theta)(t)=2\pi\sum_{n=-\infty}^{+\infty}\delta(\theta(t)-2\pi n).
+e_{\theta}(t)=\dot{\theta}(t)\times(e\circ\theta)(t)=2\pi\dot{\theta}(t)\times\sum_{n=-\infty}^{+\infty}\delta(\theta(t)-2\pi n).
 \]
 
 \end_inset
@@ -180,7 +180,7 @@ Deformations of the broadband filter
 \end_layout
 
 \begin_layout Standard
-Let 
+Let
 \begin_inset Formula $h(t)$
 \end_inset
 
@@ -192,23 +192,30 @@ Let
  is the spectral envelope, and is related to the properties of the vocal
  tract in speech production.
  Again, we define a time warp funtion 
-\begin_inset Formula $\nu\in\mathcal{C}^{3}(\mathbb{R})$
+\begin_inset Formula $\eta\in\mathcal{C}^{3}(\mathbb{R})$
 \end_inset
 
  such that 
-\begin_inset Formula $\dot{\nu}(t)>0$
+\begin_inset Formula $\dot{\eta}(t)>0$
 \end_inset
 
- for all 
+ for all
 \begin_inset Formula $t\in\mathbb{R}$
 \end_inset
 
-.
- Its derivative 
-\begin_inset Formula $\dot{\nu}(t)$
+:
+\begin_inset Formula 
+\[
+h_{\eta}(t)=\dot{\eta}(t)\times(h\circ\eta)(t).
+\]
+
 \end_inset
 
- is a local dilation factor for the spectral envelope 
+ Its derivative
+\begin_inset Formula $\dot{\eta}(t)$
+\end_inset
+
+ is a local dilation factor for the spectral envelope
 \begin_inset Formula $\hat{h}(\omega)$
 \end_inset
 
@@ -221,7 +228,7 @@ Deformed source-filter model
 
 \begin_layout Standard
 We extend the classical source filter model 
-\begin_inset Formula $[e\ast h](t)$
+\begin_inset Formula $(e\ast h)(t)$
 \end_inset
 
  by warping independently the source and the filter before combining them:
@@ -230,7 +237,7 @@ We extend the classical source filter model
 \begin_layout Standard
 \begin_inset Formula 
 \[
-x(t)=[e_{\theta}\ast h_{\nu}](t).
+x_{\text{\theta},\eta}(t)=(e_{\theta}\ast h_{\eta})(t).
 \]
 
 \end_inset
@@ -248,7 +255,7 @@ We will show that, for
 \end_inset
 
  and 
-\begin_inset Formula $\dot{\nu}(t)$
+\begin_inset Formula $\dot{\eta}(t)$
 \end_inset
 
  reasonably regular over the support of first-order wavelets 
@@ -277,15 +284,7 @@ We will show that, for
 \begin_inset Formula $\beta$
 \end_inset
 
- is the 
-\begin_inset Quotes eld
-\end_inset
-
-quefrency
-\begin_inset Quotes erd
-\end_inset
-
- along chromas, in cycles per octaves.
+ is the frequency along chromas, in cycles per octaves.
  Typically, 
 \begin_inset Formula $\vert\beta\vert\geq1$
 \end_inset
@@ -297,15 +296,7 @@ quefrency
 \begin_inset Formula $\gamma$
 \end_inset
 
- is the 
-\begin_inset Quotes eld
-\end_inset
-
-quefrency
-\begin_inset Quotes erd
-\end_inset
-
- across octaves, in cycles per octaves.
+ is the frequency across octaves, in cycles per octaves.
  Typically, 
 \begin_inset Formula $\vert\gamma\vert\le1$
 \end_inset
@@ -317,7 +308,7 @@ quefrency
 This plane satisfies the Cartesian equation
 \begin_inset Formula 
 \[
-\alpha+\dfrac{\ddot{\theta}(t)}{\dot{\theta}(t)}\beta+\dfrac{\ddot{\nu}(t)}{\dot{\nu}(t)}\gamma=0.
+\alpha+\dfrac{\ddot{\theta}(t)}{\dot{\theta}(t)}\beta+\dfrac{\ddot{\eta}(t)}{\dot{\eta}(t)}\gamma=0.
 \]
 
 \end_inset
@@ -337,7 +328,7 @@ Our proof is organized as follows:
 \begin_layout Enumerate
 Assuming that the spectral envelope is almost constant over the frequential
  support of the wavelet, the convolution between 
-\begin_inset Formula $h_{\nu}$
+\begin_inset Formula $h_{\eta}$
 \end_inset
 
  and 
@@ -354,18 +345,14 @@ Assuming that the spectral envelope is almost constant over the frequential
 
 , up to a phase shift.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Interestingly, this result is a 
+Interestingly, this result is a
 \emph on
-swapped
+ swapped
 \emph default
- formulation
-\emph on
- 
-\emph default
-of the wavelet ridge theorem.
+ formulationof the wavelet ridge theorem.
  Whereas the wavelet ridge theorem assumes that the signal has slowly varying
  amplitude and fundamental frequency over the support of the wavelet, here
  we assume that the wavelet has slowly varying amplitude over the support
@@ -414,7 +401,6 @@ The harmonicity property implies that the convolution along chromas only
  applies to the deformed source.
  In turn, the spectral smoothness property implies that the convolution
  across octaves only applies to the deformed filter.
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -466,7 +452,7 @@ slowly varying source:
 
 \begin_layout Enumerate
 slowly varying filter: 
-\begin_inset Formula $\Vert\ddot{\nu}/\dot{\nu}\Vert_{\infty}\ll\lambda_{1}/Q$
+\begin_inset Formula $\Vert\ddot{\eta}/\dot{\eta}\Vert_{\infty}\ll\lambda_{1}/Q$
 \end_inset
 
 ,
@@ -474,7 +460,7 @@ slowly varying filter:
 
 \begin_layout Enumerate
 spectral envelope is almost constant over one semitone: 
-\begin_inset Formula $\Vert\dot{\hat{h}}/\hat{h}\Vert_{\infty}\ll Q/\lambda_{1}$
+\begin_inset Formula $\Vert\mathrm{d}(\log\hat{h})/\mathrm{d}\omega\Vert_{\infty}\ll Q/\lambda_{1}$
 \end_inset
 
 .
@@ -493,7 +479,7 @@ In addition, we use the fact that harmonicity implies self-similarity:
 \begin_inset Formula $\vert t\vert>2\pi$
 \end_inset
 
- and 
+ and
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -528,7 +514,7 @@ Let
 \end_inset
 
  and unit norm.
- An approximately analytic wavelet is constructed by multiplying 
+ An approximately analytic wavelet is constructed by multiplying
 \begin_inset Formula $g(t)$
 \end_inset
 
@@ -536,7 +522,7 @@ Let
 \begin_inset Formula $1$
 \end_inset
 
-: 
+:
 \begin_inset Formula 
 \[
 \psi(t)=g(t)\exp(\mathrm{i}t).
@@ -569,7 +555,7 @@ The role of the wavelet transform is to localize the power spectrum of
 \end_inset
 
  and 
-\begin_inset Formula $\nu(t)$
+\begin_inset Formula $\eta(t)$
 \end_inset
 
  can be linearized.
@@ -627,47 +613,209 @@ Linearization of filter deformations (or the swapped wavelet ridge theorem)
 \end_layout
 
 \begin_layout Standard
-The first-order Taylor series expansion of 
-\begin_inset Formula $\nu$
+The convolution between the deformed filter and the wavelet is defined as:
+\begin_inset Formula 
+\[
+(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\int_{-\infty}^{+\infty}\dot{\eta}(u)\times\left(h\circ\eta\right)(u)\times\psi_{\lambda_{1}}(t-u)\,\mathrm{d}u.
+\]
+
 \end_inset
 
-over the support of 
+The change of variables 
+\begin_inset Formula $v=\eta(u)$
+\end_inset
+
+ leads to
+\begin_inset Formula 
+\[
+(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\int_{-\infty}^{+\infty}h(v)\times\psi_{\lambda_{1}}\left(t-\eta^{(-1)}(v)\right)\,\mathrm{d}v,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\eta^{(-1)}$
+\end_inset
+
+ is the functional inverse of 
+\begin_inset Formula $\eta$
+\end_inset
+
+.
+ We compute the second-order Taylor expansion of 
+\begin_inset Formula $\eta^{(-1)}$
+\end_inset
+
+ around 
+\begin_inset Formula $\eta(t)$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\eta^{(-1)}(v)=t+\dfrac{\left(v-\eta(t)\right)}{\dot{\eta}(t)}+\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right)
+\]
+
+\end_inset
+
+with
+\begin_inset Formula 
+\[
+\left|\varepsilon_{\eta^{(-1)}}(v)\right|\leq\sup_{\left[t,\eta^{(-1)}(v)\right]}\left|\dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right|.
+\]
+
+\end_inset
+
+Let us define the auxiliary function
+\begin_inset Formula 
+\[
+\rho(v)=\dfrac{v}{\dot{\eta}(t)}+\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right).
+\]
+
+\end_inset
+
+The wavelet 
 \begin_inset Formula $\psi_{\lambda_{1}}$
 \end_inset
 
- leads to an approximate expression of the convolution 
-\begin_inset Formula $[h_{\nu}\ast\psi_{\lambda_{1}}](t)$
-\end_inset
-
-:
+ is built with the analytic form
 \begin_inset Formula 
 \[
-[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\nu(t)-\dot{\nu}(t)u)\psi_{\lambda_{1}}(u)\,\mathrm{d}u
+\psi_{\lambda_{1}}\left(t-\eta^{(-1)}(v)\right)=g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right)\exp\left(\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right).
 \]
 
 \end_inset
 
-The linear change of variables 
-\begin_inset Formula $u^{\prime}=\dot{\nu}(t)\times u$
-\end_inset
-
- yields
+We have:
 \begin_inset Formula 
 \[
-[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\nu(t)-u^{\prime})\psi_{\lambda_{1}}\left(\dfrac{u^{\prime}}{\dot{\nu}(t)}\right)\,\dfrac{\mathrm{d}u^{\prime}}{\dot{\nu}(t)}.
+g\left(\lambda_{1}\left(t-\eta^{(-1)}v)\right)\right)=g\left(\lambda_{1}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}+\rho(v)\right)\right).
 \]
 
 \end_inset
 
-The dilation factor 
-\begin_inset Formula $\dot{\nu}(t)$
+We expand the envelope 
+\begin_inset Formula $g$
 \end_inset
 
- may be turned into a translation in the log-frequency domain.
- Indeed we have:
+ again with a second-order Taylor expansion:
+\begin_inset Formula 
+\begin{eqnarray*}
+g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right) & = & g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\\
+ & + & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\rho(v)\\
+ & + & \dfrac{\lambda_{1}^{2}\rho(v)^{2}}{2}\varepsilon_{g}\left(h(v)\right)
+\end{eqnarray*}
+
+\end_inset
+
+where we make the crude majorization
 \begin_inset Formula 
 \[
-[h_{\nu}\ast\psi_{\lambda_{1}}](t)=\dfrac{1}{2\pi}\int_{\infty}^{+\infty}\widehat{h}(\omega)\widehat{\psi_{\dot{\nu(t)}\lambda_{1}}}
+\left|\varepsilon_{g}\left(\rho(v)\right)\right|\leq\sup_{\mathbb{R}}\vert\ddot{g}\vert.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We get
+\begin_inset Formula 
+\begin{eqnarray}
+ & \left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)\times\exp\left(-\mathrm{i}\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\nonumber \\
+= & g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(I)}\nonumber \\
+- & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}\rho(v)h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(II)}\nonumber \\
++ & \dfrac{\lambda_{1}^{2}}{2}{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)^{2}\varepsilon_{g}(\rho(v))h(v)\exp\left(-\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)-\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\right)\;\mathrm{d}v. & \text{(III)}\label{eq:filter-distribution}
+\end{eqnarray}
+
+\end_inset
+
+A first-order Taylor expansion of the complex exponential gives
+\begin_inset Formula 
+\[
+\mathrm{exp}\left(\mathrm{i}\lambda_{1}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)=1+\lambda_{1}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left|\varepsilon_{\mathrm{exp}}(v)\right|\leq1$
+\end_inset
+
+.
+ We recognize the Fourier transform of 
+\begin_inset Formula $h(v)$
+\end_inset
+
+ evaluated at the negative frequency 
+\begin_inset Formula $-\lambda_{1}/\dot{\eta}(t)$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\;\mathrm{d}v=\hat{h}\left(-\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $h(v)$
+\end_inset
+
+ is real, 
+\begin_inset Formula $\hat{h}(\omega)$
+\end_inset
+
+ is symmetric, so we may drop the sign of 
+\begin_inset Formula $\lambda_{1}/\dot{\eta}(t)$
+\end_inset
+
+.
+ The first term in the expansion rewrites as
+\begin_inset Formula 
+\[
+\text{(I)}=g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left(\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\int_{-\infty}^{+\infty}\lambda_{1}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\;\mathrm{d}v\right).
+\]
+
+\end_inset
+
+Inserting Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:filter-distribution"
+
+\end_inset
+
+ in the expression of Equation yields
+\begin_inset Formula 
+\[
+\left|\left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)-\psi_{\lambda_{1}}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)\right|\leq\varepsilon_{I}+\varepsilon_{II}+\varepsilon_{III}
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\varepsilon_{\mathrm{(I)}}=\left|{\displaystyle \int_{-\infty}^{+\infty}}\lambda_{1}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\;\mathrm{d}v\right|
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\varepsilon_{\text{(II)}}=\lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left|{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v\right|
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\varepsilon_{\text{(III)}}=\dfrac{\lambda_{1}^{2}}{2}\left|{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)^{2}\varepsilon_{g}(\rho(v))h(v)\exp\left(-\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)-\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\right)\;\mathrm{d}v\right|
 \]
 
 \end_inset

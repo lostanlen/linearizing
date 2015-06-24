@@ -350,7 +350,7 @@ status open
 \begin_layout Plain Layout
 Interestingly, this result is a
 \emph on
-swapped
+ swapped
 \emph default
  formulationof the wavelet ridge theorem.
  Whereas the wavelet ridge theorem assumes that the signal has slowly varying
@@ -616,15 +616,11 @@ Linearization of filter deformations (or the swapped wavelet ridge theorem)
 The convolution between the deformed filter and the wavelet is defined as:
 \begin_inset Formula 
 \[
-(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\int_{-\infty}^{+\infty}\dot{\eta}(u)h\left(\eta(u)\right)\psi_{\lambda_{1}}(t-u)\,\mathrm{d}u.
+(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\int_{-\infty}^{+\infty}\dot{\eta}(u)\times\left(h\circ\eta\right)(u)\times\psi_{\lambda_{1}}(t-u)\,\mathrm{d}u.
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 The change of variables 
 \begin_inset Formula $v=\eta(u)$
 \end_inset
@@ -632,7 +628,7 @@ The change of variables
  leads to
 \begin_inset Formula 
 \[
-(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\int_{-\infty}^{+\infty}h(v)\psi_{\lambda_{1}}(t-\eta^{(-1)}(v))\,\mathrm{d}v,
+(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\int_{-\infty}^{+\infty}h(v)\times\psi_{\lambda_{1}}\left(t-\eta^{(-1)}(v)\right)\,\mathrm{d}v,
 \]
 
 \end_inset
@@ -646,23 +642,18 @@ where
 \end_inset
 
 .
- Let 
-\begin_inset Formula $v_{0}=\eta(0)$
-\end_inset
-
-.
  We compute the second-order Taylor expansion of 
 \begin_inset Formula $\eta^{(-1)}$
 \end_inset
 
  around 
-\begin_inset Formula $v_{0}$
+\begin_inset Formula $\eta(t)$
 \end_inset
 
 : 
 \begin_inset Formula 
 \[
-\eta^{(-1)}(v)=\dfrac{v}{\dot{\eta}(0)}+\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)
+\eta^{(-1)}(v)=t+\dfrac{\left(v-\eta(t)\right)}{\dot{\eta}(t)}+\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right)
 \]
 
 \end_inset
@@ -670,51 +661,16 @@ where
 with
 \begin_inset Formula 
 \[
-\left|\varepsilon_{\eta^{(-1)}}(v)\right|\leq\sup_{u\in\left[0,\eta^{(-1)}(v)\right]}\left|\dfrac{\ddot{\eta}(u)}{\dot{\eta}(u)^{3}}\right|.
+\left|\varepsilon_{\eta^{(-1)}}(v)\right|\leq\sup_{\left[t,\eta^{(-1)}(v)\right]}\left|\dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right|.
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\eta^{(-1)}(v)=\dfrac{v}{\dot{\eta}(0)}+\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)
-\]
-
+LThe wavelet 
+\begin_inset Formula $\psi_{\lambda_{1}}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-We compute the second-order Taylor expansion of the wavelet envelope 
-\begin_inset Formula $g:$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right)=g\left(\lambda_{1}t\right)-\lambda_{1}v\dfrac{\dot{g}\left(\lambda_{1}t\right)}{\dot{\eta}(0)}+\dfrac{\lambda_{1}^{2}v^{2}}{2}\varepsilon_{g}(v)
-\]
-
-\end_inset
-
-with
-\begin_inset Formula 
-\[
-\left|\varepsilon_{g}(v)\right|\leq\sup_{u\in[0,,\eta^{(-1)}(v)]}\left|\dfrac{\ddot{\eta}(u)\times\dot{g}\left(t-u\right)+\ddot{g}\left(t-u\right)}{\dot{\eta}(u)^{3}}\right|.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The wavelet is built is an analytic form 
+ is built with the analytic form
 \begin_inset Formula 
 \[
 \psi_{\lambda_{1}}\left(t-\eta^{(-1)}(v)\right)=g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right)\exp\left(\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right).
@@ -722,13 +678,39 @@ The wavelet is built is an analytic form
 
 \end_inset
 
+We expand the envelope 
+\begin_inset Formula $g$
+\end_inset
+
+ again with a second-order Taylor expansion:
+\begin_inset Formula 
+\begin{eqnarray*}
+g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right) & = & g\left(\lambda_{1}\dfrac{\eta(t)-v}{\dot{\eta}(t)}\right)\\
+ & + & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)-v}{\dot{\eta}(t)}\right)\times\dfrac{\left(\eta(t)-v\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right)\\
+ & + & \lambda_{1}^{2}\dfrac{\left(\eta(t)-v\right)^{4}}{4}\times\varepsilon_{\eta^{(-1)}}^{2}(v)\times\varepsilon_{g}\left(\dfrac{\left(\eta(t)-v\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)
+\end{eqnarray*}
+
+\end_inset
+
+where we make the crude majorization
+\begin_inset Formula 
+\[
+\left|\varepsilon_{g}\left(\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}(v)}\right)\right|\leq\sup_{\mathbb{R}}\vert\ddot{g}\vert.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 We get
 \begin_inset Formula 
 \begin{eqnarray}
- & \left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)\times\exp\left(-\mathrm{i}\lambda_{1}t\right)\nonumber \\
-= & g\left(\lambda_{1}(t-t_{0})\right)\int_{-\infty}^{+\infty}h(v)\exp\left(-\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t_{0})}v\right)\exp\left(\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & (I)\nonumber \\
-- & \lambda_{1}\dfrac{\dot{g}\left(\lambda_{1}(t-t_{0})\right)}{\dot{\eta}(t_{0})}\int_{-\infty}^{+\infty}vh(v)\exp\left(-\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t_{0})}v\right)\exp\left(\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & (II)\nonumber \\
-+ & \dfrac{\lambda_{1}^{2}}{2}\int_{-\infty}^{+\infty}v^{2}\varepsilon_{g}(v)h(v)\exp\left(-\mathrm{i}\lambda_{1}(t_{0}-\eta^{(-1)}(v)\right)\;\mathrm{d}v. & (III)\label{eq:filter-distribution}
+ & \left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)\times\exp\left(-\mathrm{i}\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\nonumber \\
+= & g\left(\lambda_{1}t\right){\displaystyle \int_{-\infty}^{+\infty}}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(I)}\nonumber \\
+- & \lambda_{1}\dfrac{\dot{g}\left(\lambda_{1}t\right)}{\dot{\eta}(t)}{\displaystyle \int_{-\infty}^{+\infty}}vh(\eta(t)+v)\exp\left(-\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(II)}\nonumber \\
++ & \dfrac{\lambda_{1}^{2}}{2}{\displaystyle \int_{-\infty}^{+\infty}}v^{2}\varepsilon_{g}(v)h(\eta(t)+v)\exp\left(-\mathrm{i}\lambda_{1}\eta^{(-1)}(v)\right)\;\mathrm{d}v. & \text{(III)}\label{eq:filter-distribution}
 \end{eqnarray}
 
 \end_inset
@@ -746,9 +728,39 @@ where
 \end_inset
 
 .
+ We recognize the Fourier transform of 
+\begin_inset Formula $h(v)$
+\end_inset
+
+ evaluated at the negative frequency 
+\begin_inset Formula $-\lambda_{1}/\dot{\eta}(t)$
+\end_inset
+
+: 
 \begin_inset Formula 
 \[
-(I)=g\left(\lambda_{1}(t-t_{0})\right)\left(\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t_{0})}\right)+\int_{-\infty}^{+\infty}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\;\mathrm{d}v\right).
+\int_{-\infty}^{+\infty}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\;\mathrm{d}v=\hat{h}\left(-\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $h(v)$
+\end_inset
+
+ is real, 
+\begin_inset Formula $\hat{h}(\omega)$
+\end_inset
+
+ is symmetric, so we may drop the sign of 
+\begin_inset Formula $\lambda_{1}/\dot{\eta}(t)$
+\end_inset
+
+.
+ The first term in the expansion rewrites as
+\begin_inset Formula 
+\[
+\text{(I)}=g(\lambda_{1}t)\left(\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\int_{-\infty}^{+\infty}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\;\mathrm{d}v\right).
 \]
 
 \end_inset
