@@ -837,7 +837,8 @@ base times height
 \begin_inset Quotes erd
 \end_inset
 
- inequality and with complex exponentials 
+ inequality and with complex exponentials replaced by quadratic surrogates:
+ 
 \begin_inset Formula 
 \[
 \varepsilon_{\text{(I)}}\leq\dfrac{\lambda_{1}}{2}T_{h}^{2}\times\Vert h\Vert_{\infty}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}.

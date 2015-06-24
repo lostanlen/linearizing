@@ -837,7 +837,8 @@ base times height
 \begin_inset Quotes erd
 \end_inset
 
- inequality and with complex exponentials 
+ inequality and with complex exponentials replaced by quadratic surrogates
+ : 
 \begin_inset Formula 
 \[
 \varepsilon_{\text{(I)}}\leq\dfrac{\lambda_{1}}{2}T_{h}^{2}\times\Vert h\Vert_{\infty}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}.
@@ -858,7 +859,7 @@ base times height
 \begin_inset Formula 
 \begin{eqnarray*}
 \varepsilon_{\text{(III)}} & \leq & \dfrac{\lambda_{1}^{2}}{2}\times\left(\dfrac{T_{h}}{\dot{\eta}(t)}+T_{h}^{2}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)^{2}\times\Vert\ddot{g}\Vert_{\infty}\\
- & \times & \Vert h\Vert_{\infty}\times\left(1+\dfrac{\lambda_{1}T_{h}^{2}}{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)\times\left(1+\dfrac{\lambda_{1}}{\dot{\eta}(t)}T_{h}\right)\times\left(1+\dfrac{\lambda_{1}T_{h}^{2}}{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)
+ & \times & \Vert h\Vert_{\infty}\times\sqrt{1+\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}T_{h}\right)^{2}}\times\left(1+\left(\dfrac{\lambda_{1}T_{h}^{2}}{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)^{2}\right)
 \end{eqnarray*}
 
 \end_inset
