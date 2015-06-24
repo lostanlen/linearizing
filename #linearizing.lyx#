@@ -666,7 +666,15 @@ with
 
 \end_inset
 
-LThe wavelet 
+Let us define the auxiliary function
+\begin_inset Formula 
+\[
+\rho(v)=\dfrac{v}{\dot{\eta}(t)}+\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right).
+\]
+
+\end_inset
+
+The wavelet 
 \begin_inset Formula $\psi_{\lambda_{1}}$
 \end_inset
 
@@ -678,6 +686,14 @@ LThe wavelet
 
 \end_inset
 
+We have:
+\begin_inset Formula 
+\[
+g\left(\lambda_{1}\left(t-\eta^{(-1)}v)\right)\right)=g\left(\lambda_{1}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}+\rho(v)\right)\right).
+\]
+
+\end_inset
+
 We expand the envelope 
 \begin_inset Formula $g$
 \end_inset
@@ -685,9 +701,9 @@ We expand the envelope
  again with a second-order Taylor expansion:
 \begin_inset Formula 
 \begin{eqnarray*}
-g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right) & = & g\left(\lambda_{1}\dfrac{\eta(t)-v}{\dot{\eta}(t)}\right)\\
- & + & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)-v}{\dot{\eta}(t)}\right)\times\dfrac{\left(\eta(t)-v\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right)\\
- & + & \lambda_{1}^{2}\dfrac{\left(\eta(t)-v\right)^{4}}{4}\times\varepsilon_{\eta^{(-1)}}^{2}(v)\times\varepsilon_{g}\left(\dfrac{\left(\eta(t)-v\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)
+g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right) & = & g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\\
+ & + & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\rho(v)\\
+ & + & \dfrac{\lambda_{1}^{2}\rho(v)^{2}}{2}\varepsilon_{g}\left(h(v)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -695,7 +711,7 @@ g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right) & = & g\left(\lambda_{1}\
 where we make the crude majorization
 \begin_inset Formula 
 \[
-\left|\varepsilon_{g}\left(\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}(v)}\right)\right|\leq\sup_{\mathbb{R}}\vert\ddot{g}\vert.
+\left|\varepsilon_{g}\left(\rho(v)\right)\right|\leq\sup_{\mathbb{R}}\vert\ddot{g}\vert.
 \]
 
 \end_inset
@@ -708,18 +724,18 @@ We get
 \begin_inset Formula 
 \begin{eqnarray}
  & \left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)\times\exp\left(-\mathrm{i}\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\nonumber \\
-= & g\left(\lambda_{1}t\right){\displaystyle \int_{-\infty}^{+\infty}}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(I)}\nonumber \\
-- & \lambda_{1}\dfrac{\dot{g}\left(\lambda_{1}t\right)}{\dot{\eta}(t)}{\displaystyle \int_{-\infty}^{+\infty}}vh(\eta(t)+v)\exp\left(-\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(II)}\nonumber \\
-+ & \dfrac{\lambda_{1}^{2}}{2}{\displaystyle \int_{-\infty}^{+\infty}}v^{2}\varepsilon_{g}(v)h(\eta(t)+v)\exp\left(-\mathrm{i}\lambda_{1}\eta^{(-1)}(v)\right)\;\mathrm{d}v. & \text{(III)}\label{eq:filter-distribution}
+= & g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(I)}\nonumber \\
+- & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}\rho(v)h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(II)}\nonumber \\
++ & \dfrac{\lambda_{1}^{2}}{2}{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)^{2}\varepsilon_{g}(\rho(v))h(v)\exp\left(-\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)-\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\right)\;\mathrm{d}v. & \text{(III)}\label{eq:filter-distribution}
 \end{eqnarray}
 
 \end_inset
 
 A first-order Taylor expansion of the complex exponential gives
 \begin_inset Formula 
-\[
-\mathrm{exp}\left(\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)=1+\mathrm{i}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)
-\]
+\begin{equation}
+\mathrm{exp}\left(\mathrm{i}\lambda_{1}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)=1+\lambda_{1}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\label{eq:complex-exp-linearization}
+\end{equation}
 
 \end_inset
 
@@ -760,64 +776,90 @@ Since
  The first term in the expansion rewrites as
 \begin_inset Formula 
 \[
-\text{(I)}=g(\lambda_{1}t)\left(\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\int_{-\infty}^{+\infty}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\;\mathrm{d}v\right).
+\text{(I)}=g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left(\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\int_{-\infty}^{+\infty}\lambda_{1}\dfrac{v^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\;\mathrm{d}v\right).
 \]
 
 \end_inset
 
-inserting Equation 
+Inserting Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:filter-distribution"
+reference "eq:complex-exp-linearization"
 
 \end_inset
 
- in the expression of Equation 
-\end_layout
-
-\begin_layout Standard
-The first-order Taylor series expansion of
-\begin_inset Formula $\eta$
-\end_inset
-
-over the support of 
-\begin_inset Formula $\psi_{\lambda_{1}}$
-\end_inset
-
- leads to an approximate expression of the convolution 
-\begin_inset Formula $[h_{\eta}\ast\psi_{\lambda_{1}}](t)$
-\end_inset
-
-:
+ in the expression of Equation yields
 \begin_inset Formula 
 \[
-[h_{\eta}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\eta(t)-\dot{\eta}(t)u)\psi_{\lambda_{1}}(u)\,\mathrm{d}u
+\left|\left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)-\psi_{\lambda_{1}}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)\right|\leq\varepsilon_{\text{(I)}}+\varepsilon_{\text{(II)}}+\varepsilon_{\text{(III)}}
 \]
 
 \end_inset
 
-The linear change of variables
-\begin_inset Formula $u^{\prime}=\dot{\eta}(t)\times u$
-\end_inset
-
- yields
+where
 \begin_inset Formula 
 \[
-[h_{\eta}\ast\psi_{\lambda_{1}}](t)=\int_{-\infty}^{+\infty}h(\eta(t)-u^{\prime})\psi_{\lambda_{1}}\left(\dfrac{u^{\prime}}{\dot{\eta}(t)}\right)\,\dfrac{\mathrm{d}u^{\prime}}{\dot{\eta}(t)}.
+\varepsilon_{\mathrm{(I)}}=\dfrac{\lambda_{1}}{2}\left|{\displaystyle \int_{-\infty}^{+\infty}}v^{2}\varepsilon_{\eta^{(-1)}}(v)\varepsilon_{\mathrm{exp}}(v)\;\mathrm{d}v\right|,
 \]
 
 \end_inset
 
-The dilation factor
-\begin_inset Formula $\dot{\eta}(t)$
-\end_inset
 
- may be turned into a translation in the log-frequency domain.
- Indeed we have:
 \begin_inset Formula 
 \[
-[h_{\eta}\ast\psi_{\lambda_{1}}](t)=\dfrac{1}{2\pi}\int_{\infty}^{+\infty}\widehat{h}(\omega)\widehat{\psi_{\dot{\eta(t)}\lambda_{1}}}
+\varepsilon_{\text{(II)}}=\lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left|{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v\right|,
 \]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\varepsilon_{\text{(III)}}=\dfrac{\lambda_{1}^{2}}{2}\left|{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)^{2}\varepsilon_{g}(\rho(v))h(v)\exp\left(-\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)-\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\right)\;\mathrm{d}v\right|.
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $T_{h}$
+\end_inset
+
+ be the time support of the filter 
+\begin_inset Formula $h(t)$
+\end_inset
+
+.
+ We majorize all three corrective terms with a simple 
+\begin_inset Quotes eld
+\end_inset
+
+base times height
+\begin_inset Quotes erd
+\end_inset
+
+ inequality and 
+\begin_inset Formula 
+\[
+\varepsilon_{\text{(I)}}\leq\dfrac{\lambda_{1}}{2}T_{h}^{2}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\varepsilon_{\mathrm{(II)}} & \leq & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\left(\dfrac{T_{h}}{\dot{\eta}(t)}+T_{h}^{2}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)\\
+ & \times & \Vert h\Vert_{\infty}\times\left(1+\dfrac{\lambda_{1}}{\dot{\eta}(t)}T_{h}\right)\times\left(1+\dfrac{\lambda_{1}T_{h}^{2}}{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\varepsilon_{\text{(III)}} & \leq & \dfrac{\lambda_{1}^{2}}{2}\times\left(\dfrac{T_{h}}{\dot{\eta}(t)}+T_{h}^{2}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)^{2}\times\Vert\ddot{g}\Vert_{\infty}\\
+ & \times & \Vert h\Vert_{\infty}\times\left(1+\dfrac{\lambda_{1}T_{h}^{2}}{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)\times\left(1+\dfrac{\lambda_{1}}{\dot{\eta}(t)}T_{h}\right)\times\left(1+\dfrac{\lambda_{1}T_{h}^{2}}{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)
+\end{eqnarray*}
 
 \end_inset
 
