@@ -886,21 +886,18 @@ base times height
 
 \end_inset
 
-Recalling Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:rho"
-
+We have, by first order expansion of 
+\begin_inset Formula $\eta^{(-1)}(v)$
 \end_inset
 
-, the auxiliary function 
-\begin_inset Formula $\rho(v)$
+ around 
+\begin_inset Formula $t$
 \end_inset
 
- is dominated by
+:
 \begin_inset Formula 
 \[
-\vert\rho(v)\vert\leq\dfrac{T_{h}}{2\dot{\eta}(t)}+\dfrac{T_{h}^{2}}{8}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}.
+\vert\rho(v)\vert\leq\left\Vert t-\eta^{(-1)}(v)\right\Vert _{\infty}\leq\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}.
 \]
 
 \end_inset
@@ -908,7 +905,7 @@ reference "eq:rho"
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\varepsilon_{\mathrm{(II)}} & \leq & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\left(\dfrac{T_{h}}{2\dot{\eta}(t)}+\dfrac{T_{h}^{2}}{8}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)\times\Vert h\Vert_{\infty}\times T_{h}
+\varepsilon_{\mathrm{(II)}} & \leq & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}\times\Vert h\Vert_{\infty}\times T_{h}
 \end{eqnarray*}
 
 \end_inset
@@ -916,27 +913,15 @@ reference "eq:rho"
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\varepsilon_{\text{(III)}} & \leq & \dfrac{\lambda_{1}^{2}}{2}\times\left(\dfrac{T_{h}}{2\dot{\eta}(t)}+\dfrac{T_{h}^{2}}{8}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\right)^{2}\times\Vert\ddot{g}\Vert_{\infty}\times\Vert h\Vert_{\infty}\times T_{h}
+\varepsilon_{\text{(III)}} & \leq & \dfrac{\lambda_{1}^{2}}{2}\times\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}\times\Vert\ddot{g}\Vert_{\infty}\times\Vert h\Vert_{\infty}\times T_{h}
 \end{eqnarray*}
 
 \end_inset
 
-If we drop 
-\begin_inset Formula $T_{h}/2\dot{\eta}(t)$
-\end_inset
-
- in 
-\begin_inset Formula $\varepsilon_{(ii)}$
-\end_inset
-
- and 
-\begin_inset Formula $\varepsilon_{(iii)}$
-\end_inset
-
-:
+At the end of the day, we have:
 \begin_inset Formula 
 \[
-\varepsilon\leq\dfrac{\lambda_{1}}{2}\times\left(\dfrac{T_{h}}{2}\right)^{2}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\times\left(1+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)+\dfrac{\lambda_{1}T_{h}}{16}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\times\Vert\ddot{g}\Vert_{\infty}\right)\times\Vert h\Vert_{\infty}\times T_{h}
+\varepsilon\leq\left(T_{h}^{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}+\left(\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)+\lambda_{1}\Vert\ddot{g}\Vert_{\infty}\right)\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}\right)\times\lambda_{1}T_{h}\Vert h\Vert_{\infty}
 \]
 
 \end_inset
