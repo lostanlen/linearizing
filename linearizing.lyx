@@ -74,9 +74,22 @@ figs-within-sections
 
 \begin_body
 
-\begin_layout Title
-Linearizing deformations of the harmonic source-filter model with the spiral
- scattering transform
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+title[Linearizing deformations with the spiral scattering transform]{Linearizing
+ deformations of the harmonic source-filter model with the spiral scattering
+ transform}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Author

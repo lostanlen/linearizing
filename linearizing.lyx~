@@ -908,7 +908,19 @@ reference "eq:rho"
 
 \end_inset
 
+If we drop 
+\begin_inset Formula $T_{h}/2\dot{\eta}(t)$
+\end_inset
 
+ in 
+\begin_inset Formula $\varepsilon_{(ii)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon_{(iii)}$
+\end_inset
+
+:
 \begin_inset Formula 
 \[
 \varepsilon\leq\dfrac{\lambda_{1}}{2}\times\left(\dfrac{T_{h}}{2}\right)^{2}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\times\left(1+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)+\dfrac{\lambda_{1}T_{h}}{16}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\times\Vert\ddot{g}\Vert_{\infty}\right)\times\Vert h\Vert_{\infty}\times T_{h}
