@@ -118,14 +118,18 @@ Deformations of the harmonic comb
 \end_layout
 
 \begin_layout Standard
-A 
-\begin_inset Formula $2\pi$
+A real harmonic comb of dimensionless period 
+\begin_inset Formula $1$
 \end_inset
 
--periodic Dirac pulse train is defined as
+ is built as a sum of 
+\begin_inset Formula $P$
+\end_inset
+
+ partials of integer frequencies:
 \begin_inset Formula 
 \[
-e(t)=2\pi\sum_{n=-\infty}^{+\infty}\delta(t-2\pi n).
+e(t)=\sum_{p=1}^{P}\cos(2\pi pt).
 \]
 
 \end_inset
@@ -169,10 +173,18 @@ Let
 \end_inset
 
 .
- We defined a warped source as
+ We defined a warped 
+\begin_inset Quotes eld
+\end_inset
+
+source
+\begin_inset Quotes erd
+\end_inset
+
+ as
 \begin_inset Formula 
 \[
-e_{\theta}(t)=\dot{\theta}(t)\times(e\circ\theta)(t)=2\pi\dot{\theta}(t)\times\sum_{n=-\infty}^{+\infty}\delta(\theta(t)-2\pi n).
+e_{\theta}(t)=\dot{\theta}(t)\times(e\circ\theta)(t)=\dot{\theta}(t)\times\sum_{p=1}^{P}\cos(2\pi p\theta(t)).
 \]
 
 \end_inset
@@ -193,7 +205,7 @@ Deformations of the broadband filter
 \end_layout
 
 \begin_layout Standard
-Let
+Let 
 \begin_inset Formula $h(t)$
 \end_inset
 
@@ -224,11 +236,11 @@ h_{\eta}(t)=\dot{\eta}(t)\times(h\circ\eta)(t).
 
 \end_inset
 
- Its derivative
+ Its derivative 
 \begin_inset Formula $\dot{\eta}(t)$
 \end_inset
 
- is a local dilation factor for the spectral envelope
+ is a local dilation factor for the spectral envelope 
 \begin_inset Formula $\hat{h}(\omega)$
 \end_inset
 
@@ -449,10 +461,11 @@ We work under the following assumptions:
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $Q$
+twice more filters than partials within every octave: 
+\begin_inset Formula $Q\geq P$
 \end_inset
 
- large enough to discriminate non-negligible partials,
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -594,18 +607,39 @@ Let
 \begin_inset Formula $f$
 \end_inset
 
+ with the wavelet 
+\begin_inset Formula $\psi_{\lambda_{1}}(t)=g(\lambda_{1}t)\exp(\mathrm{i}\lambda_{1}t)$
+\end_inset
+
  is equal to
 \begin_inset Formula 
 \[
-f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\varphi(t))\times\left(\hat{g}\left(1-\dfrac{\dot{\varphi}(t)}{\lambda_{1}}\right)+\varepsilon(t,\lambda_{1})\right),
+f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\varphi(t))\times\left(\hat{g}\left(1-\dfrac{\dot{\varphi}(t)}{\lambda_{1}}\right)+\varepsilon(t,\lambda_{1})\right).
 \]
 
 \end_inset
 
-where the corrective term satisfies
+The corrective term satisfies
 \begin_inset Formula 
 \[
-\Vert\varepsilon(t,\lambda_{1})\Vert_{\infty}\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{\infty}+\left\Vert \dfrac{\ddot{\varphi}(t)}{\lambda_{1}^{2}}\right\Vert _{\infty}+\sup_{\vert\omega\vert\geq\vert\dot{\varphi}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert.
+\Vert\varepsilon(t,\lambda_{1})\Vert_{\infty}\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{\varphi}(t)}{\lambda_{1}^{2}}\right\Vert _{t,s(\lambda_{1})}+\sup_{\vert\omega\vert\geq\vert\dot{\varphi}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Vert\cdot\Vert_{t,s(\lambda_{1})}$
+\end_inset
+
+ is a shorthand for the supremum norm over the time support of the wavelet
+ 
+\begin_inset Formula $\psi_{\lambda_{1}}(t)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,s(\lambda_{1})}=\sup_{\left|u-t\right|<s(\lambda_{1})}\left|\dfrac{\dot{a}(u)}{\lambda_{1}\dot{a}(u)}\right|.
 \]
 
 \end_inset
@@ -627,25 +661,28 @@ Linearization of filter deformations (or the swapped wavelet ridge theorem)
 
 \begin_layout Theorem*
 Let 
-\begin_inset Formula $h_{\eta}(t)=\dot{\eta}(t)\times\left(h\circ\eta\right)(t)$
+\begin_inset Formula $h\in\mathbf{L^{2}}(\mathbb{R})$
 \end_inset
 
- where 
-\begin_inset Formula $\eta\in\mathcal{C}^{2}(\mathbb{R},\mathbb{R})$
+ of finite support 
+\begin_inset Formula $T_{h}$
 \end_inset
 
  and 
+\begin_inset Formula $\eta\in\mathcal{C}^{2}(\mathbb{R})$
+\end_inset
+
+ such that 
 \begin_inset Formula $\dot{\eta}>0$
 \end_inset
 
 .
- Let 
-\begin_inset Formula $\psi_{\lambda_{1}}(t)=g(\lambda_{1}t)\times\exp(\mathrm{i}\lambda_{1}t)$
+ The wavelet transform of 
+\begin_inset Formula $h_{\eta}(t)=\dot{\eta}(t)\times(h\circ\eta)(t)$
 \end_inset
 
-.
- The wavelet transform 
-\begin_inset Formula $(h_{\eta}\ast\psi_{\lambda_{1}})$
+ with the wavelet 
+\begin_inset Formula $\psi_{\lambda_{1}}(t)=g(\lambda_{1}t)\exp(\mathrm{i}\lambda_{1}t)$
 \end_inset
 
  is equal to 
@@ -659,7 +696,7 @@ Let
 The corrective term satisfies
 \begin_inset Formula 
 \[
-\dfrac{\vert\varepsilon_{h}(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}^{}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}.
+\dfrac{\vert\varepsilon_{h}(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}
 \]
 
 \end_inset
@@ -668,14 +705,14 @@ where
 \begin_inset Formula $\Vert\cdot\Vert_{t,T_{h}}$
 \end_inset
 
- is a shorthand for the supremum norm in the neighbourhood of 
-\begin_inset Formula $t$
+ is a shorthand for the supremum norm over the support of 
+\begin_inset Formula $h$
 \end_inset
 
-:
+: 
 \begin_inset Formula 
 \[
-\left\Vert f\right\Vert _{t,T_{h}}=\sup_{\left|u-t\right|<T_{h}}\vert f(u)\vert
+\left\Vert f\right\Vert _{t,T_{h}}=\sup_{\left|u-t\right|<T_{h}}\vert f(u)\vert.
 \]
 
 \end_inset
@@ -976,7 +1013,11 @@ Plugging this inequality into the definition of
 
 \end_inset
 
-Similarly, 
+We dominate 
+\begin_inset Formula $\varepsilon_{\mathrm{(III)}}$
+\end_inset
+
+ in the same way: 
 \begin_inset Formula 
 \begin{eqnarray*}
 \varepsilon_{\text{(III)}} & \leq & \dfrac{\lambda_{1}^{2}}{2}\times\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}\times\Vert\ddot{g}\Vert_{\infty}\times\Vert h\Vert_{\infty}\times T_{h}.
