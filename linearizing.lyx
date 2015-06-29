@@ -98,11 +98,11 @@ Vincent Lostanlen
 
 \begin_layout Abstract
 A classical model for voiced speech production consists in the convolution
- of a harmonic glottal source
+ of a harmonic glottal source 
 \begin_inset Formula $e(t)$
 \end_inset
 
- with a vocal tract filter
+ with a vocal tract filter 
 \begin_inset Formula $h(t)$
 \end_inset
 
@@ -131,32 +131,6 @@ A real harmonic comb of dimensionless period
 \[
 e(t)=\sum_{p=1}^{P}\cos(2\pi pt).
 \]
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-The Poisson summation formula states that the Fourier transform of
-\begin_inset Formula $e(t)$
-\end_inset
-
- is a Dirac pulse train of fundamental frequency
-\begin_inset Formula $1$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-\hat{e}(\omega)=\int_{-\infty}^{+\infty}e(t)\exp(-\mathrm{i}\omega t)\,\mathrm{d}\omega=\sum_{k=-\infty}^{+\infty}\exp(\mathrm{i}k\omega).
-\]
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -493,7 +467,11 @@ spectral envelope is almost constant over one semitone:
 \end_layout
 
 \begin_layout Enumerate
-spectral envelope is almost linear over one octave.
+spectral envelope is almost linear over one octave: 
+\begin_inset Formula $\Vert\mathrm{d}(\log\hat{h})/\mathrm{d}(\log\omega)\Vert_{\infty}\ll1$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -540,7 +518,7 @@ Let
 \end_inset
 
  and unit norm.
- An approximately analytic wavelet is constructed by multiplying
+ An approximately analytic wavelet is constructed by multiplying 
 \begin_inset Formula $g(t)$
 \end_inset
 
@@ -614,7 +592,7 @@ Let
  is equal to
 \begin_inset Formula 
 \[
-f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\varphi(t))\times\left(\hat{g}\left(1-\dfrac{\dot{\varphi}(t)}{\lambda_{1}}\right)+\varepsilon(t,\lambda_{1})\right).
+\left(f\ast\psi_{\lambda_{1}}\right)(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\varphi(t))\times\left(\hat{g}\left(1-\dfrac{\dot{\varphi}(t)}{\lambda_{1}}\right)+\varepsilon(t,\lambda_{1})\right).
 \]
 
 \end_inset
@@ -622,7 +600,7 @@ f\ast\psi_{\lambda_{1}}(t)=\dfrac{1}{2}a(t)\exp(\mathrm{i}\varphi(t))\times\left
 The corrective term satisfies
 \begin_inset Formula 
 \[
-\Vert\varepsilon(t,\lambda_{1})\Vert_{\infty}\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{\varphi}(t)}{\lambda_{1}^{2}}\right\Vert _{t,s(\lambda_{1})}+\sup_{\vert\omega\vert\geq\vert\dot{\varphi}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert,
+\varepsilon(t,\lambda_{1})\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{\varphi}(t)}{\lambda_{1}^{2}}\right\Vert _{t,s(\lambda_{1})}+\sup_{\vert\omega\vert\geq\vert\dot{\varphi}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert,
 \]
 
 \end_inset
@@ -656,10 +634,10 @@ The proof can be found in Mallat's Wavelet Tour, section 4.4.
 \end_layout
 
 \begin_layout Subsection
-Linearization of filter deformations (or the swapped wavelet ridge theorem)
+Linearization of filter deformations)
 \end_layout
 
-\begin_layout Theorem*
+\begin_layout Lemma*
 Let 
 \begin_inset Formula $h\in\mathbf{L^{2}}(\mathbb{R})$
 \end_inset
@@ -682,13 +660,13 @@ Let
 \end_inset
 
  with the wavelet 
-\begin_inset Formula $\psi_{\lambda_{1}}(t)=g(\lambda_{1}t)\exp(\mathrm{i}\lambda_{1}t)$
+\begin_inset Formula $\psi_{\lambda_{1}}(t)=g(\lambda_{1}t)\times\exp(\mathrm{i}\lambda_{1}t)$
 \end_inset
 
  is equal to 
 \begin_inset Formula 
 \[
-(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\psi_{\lambda_{1}}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\varepsilon_{h}(t,\lambda_{1}).
+(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\psi_{\lambda_{1}}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\varepsilon(t,\lambda_{1}).
 \]
 
 \end_inset
@@ -696,7 +674,7 @@ Let
 The corrective term satisfies
 \begin_inset Formula 
 \[
-\dfrac{\vert\varepsilon_{h}(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}
+\dfrac{\vert\varepsilon(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}
 \]
 
 \end_inset
@@ -1026,7 +1004,7 @@ We dominate
 \end_inset
 
 Let 
-\begin_inset Formula $\varepsilon_{h}=\varepsilon_{\mathrm{(I)}}+\varepsilon_{\mathrm{(II)}}+\varepsilon_{\mathrm{(III)}}$
+\begin_inset Formula $\varepsilon=\varepsilon_{\mathrm{(I)}}+\varepsilon_{\mathrm{(II)}}+\varepsilon_{\mathrm{(III)}}$
 \end_inset
 
  be the full corrective term.
@@ -1035,6 +1013,67 @@ Let
 
 \begin_layout Subsection
 Linearization of source deformations
+\end_layout
+
+\begin_layout Theorem*
+Let 
+\begin_inset Formula $\theta,\nu\in\mathcal{C}^{2}(\mathbb{R})$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dot{\theta}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{\nu}>0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $e_{\theta}(t)=\dot{\theta}(t)\times\sum_{p=1}^{P}\cos(2\pi p\theta(t))$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{\eta}=\dot{\eta}(t)\times(h\circ\eta)(t)$
+\end_inset
+
+ where 
+\begin_inset Formula $h\in\mathbf{L^{2}}(\mathbb{R})$
+\end_inset
+
+ is of finite support 
+\begin_inset Formula $T_{h}$
+\end_inset
+
+.
+ The wavelet transform of 
+\begin_inset Formula $x_{\theta,\eta}(t)=(e_{\theta}\ast h_{\eta})(t)$
+\end_inset
+
+ with the wavelet 
+\begin_inset Formula $\psi_{\lambda_{1}}(t)=g(\lambda_{1}t)\exp(\mathrm{i}\lambda_{1}t)$
+\end_inset
+
+ is equal to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(e_{\theta}\ast h_{\eta}\ast\psi_{\lambda_{1}}\right)=\varepsilon+\sum_{p=1}^{P}\widehat{\psi}\left(\dfrac{p\dot{\theta}(t)}{\lambda_{1}}\right)\times\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right).
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dfrac{\vert\varepsilon(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
