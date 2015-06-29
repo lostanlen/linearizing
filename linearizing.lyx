@@ -625,7 +625,65 @@ The proof can be found in Mallat's Wavelet Tour, section 4.4.
 Linearization of filter deformations (or the swapped wavelet ridge theorem)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Theorem*
+Let 
+\begin_inset Formula $h_{\eta}(t)=\dot{\eta}(t)\times\left(h\circ\eta\right)(t)$
+\end_inset
+
+ where 
+\begin_inset Formula $\eta\in\mathcal{C}^{2}(\mathbb{R},\mathbb{R})$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{\eta}>0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\psi_{\lambda_{1}}(t)=g(\lambda_{1}t)\times\exp(\mathrm{i}\lambda_{1}t)$
+\end_inset
+
+.
+ The wavelet transform 
+\begin_inset Formula $(h_{\eta}\ast\psi_{\lambda_{1}})$
+\end_inset
+
+ is equal to 
+\begin_inset Formula 
+\[
+(h_{\eta}\ast\psi_{\lambda_{1}})(t)=\psi_{\lambda_{1}}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\varepsilon_{h}(t,\lambda_{1}).
+\]
+
+\end_inset
+
+The corrective term satisfies
+\begin_inset Formula 
+\[
+\dfrac{\vert\varepsilon_{h}(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Vert\cdot\Vert_{t,T_{h}}$
+\end_inset
+
+ is a shorthand for the supremum norm in the neighbourhood of 
+\begin_inset Formula $t$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left\Vert f\right\Vert _{t,T_{h}}=\sup_{\left|u-t\right|<T_{h}}\vert f(u)\vert
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
 The convolution between the deformed filter and the wavelet is defined as:
 \begin_inset Formula 
 \[
@@ -679,14 +737,6 @@ with
 
 \end_inset
 
-Let us define the auxiliary function
-\begin_inset Formula 
-\begin{equation}
-\rho(v)=\dfrac{v}{\dot{\eta}(t)}+\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right).\label{eq:rho}
-\end{equation}
-
-\end_inset
-
 The wavelet 
 \begin_inset Formula $\psi_{\lambda_{1}}$
 \end_inset
@@ -699,10 +749,18 @@ The wavelet
 
 \end_inset
 
+Let us define the auxiliary function
+\begin_inset Formula 
+\begin{equation}
+\rho(v)=-\dfrac{v}{\dot{\eta}(t)}-\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}\left(v\right).\label{eq:rho}
+\end{equation}
+
+\end_inset
+
 We have:
 \begin_inset Formula 
 \[
-g\left(\lambda_{1}\left(t-\eta^{(-1)}v)\right)\right)=g\left(\lambda_{1}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}+\rho(v)\right)\right).
+g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right)=g\left(\lambda_{1}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}+\rho(v)\right)\right).
 \]
 
 \end_inset
@@ -711,12 +769,16 @@ We expand the envelope
 \begin_inset Formula $g$
 \end_inset
 
- again with a second-order Taylor expansion:
+ again with a second-order Taylor expansion around 
+\begin_inset Formula $\eta(t)$
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{eqnarray*}
 g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right) & = & g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\\
  & + & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\rho(v)\\
- & + & \dfrac{\lambda_{1}^{2}\rho(v)^{2}}{2}\varepsilon_{g}\left(h(v)\right)
+ & + & \dfrac{\lambda_{1}^{2}\rho(v)^{2}}{2}\varepsilon_{g}\left(\rho(v)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -732,7 +794,7 @@ where we make the crude majorization
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 We get
 \begin_inset Formula 
 \begin{eqnarray}
@@ -856,7 +918,7 @@ base times height
 \end_inset
 
  is dominated by 
-\begin_inset Formula $\left(\dfrac{T_{h}}{2}\right)^{2}$
+\begin_inset Formula $T_{h}^{2}$
 \end_inset
 
 , 
@@ -872,16 +934,16 @@ base times height
 \end_inset
 
  is dominated by 
-\begin_inset Formula $\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}$
+\begin_inset Formula $\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}$
 \end_inset
 
  :
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \begin_inset Formula 
 \[
-\varepsilon_{\text{(I)}}\leq\dfrac{\lambda_{1}}{2}\times\left(\dfrac{T_{h}}{2}\right)^{2}\times\Vert h\Vert_{\infty}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}\times T_{h}.
+\varepsilon_{\text{(I)}}\leq\dfrac{\lambda_{1}}{2}\times T_{h}^{2}\times\Vert h\Vert_{\infty}\times\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}\times T_{h}.
 \]
 
 \end_inset
@@ -897,36 +959,41 @@ We have, by first order expansion of
 :
 \begin_inset Formula 
 \[
-\vert\rho(v)\vert\leq\left\Vert t-\eta^{(-1)}(v)\right\Vert _{\infty}\leq\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}.
+\vert\rho(v)\vert\leq\left\Vert t-\eta^{(-1)}(v)\right\Vert _{\infty}\leq\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}.
 \]
 
 \end_inset
 
- 
+Plugging this inequality into the definition of 
+\begin_inset Formula $\varepsilon_{(\mathrm{II})}$
+\end_inset
+
+ yields 
 \begin_inset Formula 
 \begin{eqnarray*}
-\varepsilon_{\mathrm{(II)}} & \leq & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}\times\Vert h\Vert_{\infty}\times T_{h}
+\varepsilon_{\mathrm{(II)}} & \leq & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{t,T_{h}}\times\Vert h\Vert_{\infty}\times T_{h}.
 \end{eqnarray*}
 
 \end_inset
 
+We dominate 
+\begin_inset Formula $\varepsilon_{\mathrm{(III)}}$
+\end_inset
 
+ in the same way: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\varepsilon_{\text{(III)}} & \leq & \dfrac{\lambda_{1}^{2}}{2}\times\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}\times\Vert\ddot{g}\Vert_{\infty}\times\Vert h\Vert_{\infty}\times T_{h}
+\varepsilon_{\text{(III)}} & \leq & \dfrac{\lambda_{1}^{2}}{2}\times\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}\times\Vert\ddot{g}\Vert_{\infty}\times\Vert h\Vert_{\infty}\times T_{h}.
 \end{eqnarray*}
 
 \end_inset
 
-At the end of the day, we have:
-\begin_inset Formula 
-\[
-\varepsilon\leq\left(T_{h}^{2}\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{\infty}+\left(\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)+\lambda_{1}\Vert\ddot{g}\Vert_{\infty}\right)\left\Vert \dfrac{1}{\dot{\eta}(t)}\right\Vert _{\infty}\right)\times\lambda_{1}T_{h}\Vert h\Vert_{\infty}
-\]
-
+Let 
+\begin_inset Formula $\varepsilon_{h}=\varepsilon_{\mathrm{(I)}}+\varepsilon_{\mathrm{(II)}}+\varepsilon_{\mathrm{(III)}}$
 \end_inset
 
-
+ be the full corrective term.
+ We conclude with the desired inequality.
 \end_layout
 
 \begin_layout Subsection
