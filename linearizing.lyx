@@ -198,7 +198,7 @@ Let
 \begin_inset Formula $\dot{\eta}(t)>0$
 \end_inset
 
- for all
+ for all 
 \begin_inset Formula $t\in\mathbb{R}$
 \end_inset
 
@@ -230,7 +230,8 @@ We extend the classical source filter model
 \begin_inset Formula $(e\ast h)(t)$
 \end_inset
 
- by warping independently the source and the filter before combining them:
+ by warping independently the source and the filter before comvolving them
+ together:
 \end_layout
 
 \begin_layout Standard
@@ -483,7 +484,7 @@ In addition, we use the fact that harmonicity implies self-similarity:
 \begin_inset Formula $\vert t\vert>2\pi$
 \end_inset
 
- and
+ and 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -534,7 +535,29 @@ Let
 
 \end_inset
 
-Dilated wavelets are written as
+We define 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+ as the typical time support of 
+\begin_inset Formula $g(t)$
+\end_inset
+
+.
+ In the case of a Gaussian bell curve 
+\begin_inset Formula $g(t),$
+\end_inset
+
+ we have 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+ of the order of 
+\begin_inset Formula $4Q$
+\end_inset
+
+.
+ Dilated wavelets are written as
 \begin_inset Formula 
 \[
 \psi_{\lambda_{1}}(t)=\lambda_{1}\psi(\lambda_{1}t).
@@ -552,6 +575,10 @@ The role of the wavelet transform is to localize the power spectrum of
 
  along short-term windows 
 \begin_inset Formula $\psi_{\lambda_{1}}(t)$
+\end_inset
+
+ of size 
+\begin_inset Formula $T_{g}/\lambda_{1}$
 \end_inset
 
  upon which both time warps 
@@ -600,24 +627,27 @@ Let
 The corrective term satisfies
 \begin_inset Formula 
 \[
-\varepsilon(t,\lambda_{1})\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{t,s(\lambda_{1})}+\left\Vert \dfrac{\ddot{\varphi}(t)}{\lambda_{1}^{2}}\right\Vert _{t,s(\lambda_{1})}+\sup_{\vert\omega\vert\geq\vert\dot{\varphi}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert,
+\varepsilon(t,\lambda_{1})\leq\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,T_{g}/\lambda_{1}}+\left\Vert \dfrac{\ddot{a}(t)}{\lambda_{1}^{2}a(t)}\right\Vert _{t,T_{g}/\lambda_{1}}+\left\Vert \dfrac{\ddot{\varphi}(t)}{\lambda_{1}^{2}}\right\Vert _{t,T_{g}/\lambda_{1}}+\sup_{\vert\omega\vert\geq\vert\dot{\varphi}\vert(t)/\lambda_{1}}\vert\hat{g}(\omega)\vert,
 \]
 
 \end_inset
 
 where 
-\begin_inset Formula $\Vert\cdot\Vert_{t,s(\lambda_{1})}$
+\begin_inset Formula $\Vert\cdot\Vert_{t,T_{g}/\lambda_{1}}$
 \end_inset
 
- is a shorthand for the supremum norm over the time support of the wavelet
- 
+ is a shorthand for the supremum norm over the time support 
+\begin_inset Formula $T_{g}/\lambda_{1}$
+\end_inset
+
+ of the wavelet 
 \begin_inset Formula $\psi_{\lambda_{1}}(t)$
 \end_inset
 
-:
+, e.g.
 \begin_inset Formula 
 \[
-\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,s(\lambda_{1})}=\sup_{\left|u-t\right|<s(\lambda_{1})}\left|\dfrac{\dot{a}(u)}{\lambda_{1}\dot{a}(u)}\right|.
+\left\Vert \dfrac{\dot{a}(t)}{\lambda_{1}a(t)}\right\Vert _{t,T_{g}/\lambda_{1}}=\sup_{\left|u-t\right|<T_{g}/\lambda_{1}}\left|\dfrac{\dot{a}(u)}{\lambda_{1}\dot{a}(u)}\right|.
 \]
 
 \end_inset
