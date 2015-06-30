@@ -577,6 +577,10 @@ The role of the wavelet transform is to localize the power spectrum of
 \begin_inset Formula $\psi_{\lambda_{1}}(t)$
 \end_inset
 
+ of size 
+\begin_inset Formula $T_{g}/\lambda_{1}$
+\end_inset
+
  upon which both time warps 
 \begin_inset Formula $\theta(t)$
 \end_inset
@@ -660,7 +664,7 @@ The proof can be found in Mallat's Wavelet Tour, section 4.4.
 \end_layout
 
 \begin_layout Subsection
-Linearization of filter deformations)
+Linearization of filter deformations
 \end_layout
 
 \begin_layout Lemma*
@@ -1034,7 +1038,7 @@ Let
 \end_inset
 
  be the full corrective term.
- We conclude with the desired inequality.
+ We conclude with the desired upper bound for the error.
 \end_layout
 
 \begin_layout Subsection

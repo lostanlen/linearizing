@@ -664,7 +664,7 @@ The proof can be found in Mallat's Wavelet Tour, section 4.4.
 \end_layout
 
 \begin_layout Subsection
-Linearization of filter deformations)
+Linearization of filter deformations
 \end_layout
 
 \begin_layout Lemma*
@@ -1038,7 +1038,11 @@ Let
 \end_inset
 
  be the full corrective term.
- We conclude with the desired inequality.
+ We conclude with the desired upper bound for the error 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
