@@ -461,7 +461,7 @@ slowly varying filter:
 
 \begin_layout Enumerate
 spectral envelope is almost constant over one semitone: 
-\begin_inset Formula $\Vert\mathrm{d}(\log\hat{h})/\mathrm{d}\omega\Vert_{\infty}\ll Q/\lambda_{1}$
+\begin_inset Formula $\Vert\mathrm{d}(\log\vert\hat{h}\vert)/\mathrm{d}\omega\Vert_{\infty}\ll Q/\lambda_{1}$
 \end_inset
 
 .
@@ -469,7 +469,7 @@ spectral envelope is almost constant over one semitone:
 
 \begin_layout Enumerate
 spectral envelope is almost linear over one octave: 
-\begin_inset Formula $\Vert\mathrm{d}(\log\hat{h})/\mathrm{d}(\log\omega)\Vert_{\infty}\ll1$
+\begin_inset Formula $\Vert\mathrm{d}(\log\vert\hat{h}\vert)/\mathrm{d}(\log\omega)\Vert_{\infty}\ll1$
 \end_inset
 
 .
@@ -663,7 +663,7 @@ The fourth term is negligible if
 The proof can be found in Mallat's Wavelet Tour, section 4.4.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Linearization of filter deformations
 \end_layout
 
@@ -818,6 +818,10 @@ We expand the envelope
 \begin_inset Formula $\eta(t)$
 \end_inset
 
+ according to the variable 
+\begin_inset Formula $\rho(v)$
+\end_inset
+
 :
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -828,7 +832,7 @@ g\left(\lambda_{1}\left(t-\eta^{(-1)}(v)\right)\right) & = & g\left(\lambda_{1}\
 
 \end_inset
 
-where we make the crude majorization
+and make the crude majorization
 \begin_inset Formula 
 \[
 \left|\varepsilon_{g}\left(\rho(v)\right)\right|\leq\sup_{\mathbb{R}}\vert\ddot{g}\vert.
@@ -842,12 +846,14 @@ where we make the crude majorization
 \begin_layout Proof
 We get
 \begin_inset Formula 
-\begin{eqnarray}
- & \left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)\times\exp\left(-\mathrm{i}\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\nonumber \\
-= & g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(I)}\nonumber \\
-- & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}\rho(v)h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(II)}\nonumber \\
-+ & \dfrac{\lambda_{1}^{2}}{2}{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)^{2}\varepsilon_{g}(\rho(v))h(v)\exp\left(-\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)-\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\right)\;\mathrm{d}v. & \text{(III)}\label{eq:filter-distribution}
-\end{eqnarray}
+\[
+\begin{array}{ccc}
+ & \left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)\times\exp\left(-\mathrm{i}\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\\
+= & g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(I)}\\
+- & \lambda_{1}\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right){\displaystyle \int_{-\infty}^{+\infty}}\rho(v)h(v)\exp\left(\mathrm{i}\dfrac{\lambda_{1}}{\dot{\eta}(t)}v\right)\exp\left(\mathrm{i}\lambda_{1}\dfrac{\left(v-\eta(t)\right)^{2}}{2}\varepsilon_{\eta^{(-1)}}(v)\right)\;\mathrm{d}v & \text{(II)}\\
++ & \dfrac{\lambda_{1}^{2}}{2}{\displaystyle \int_{-\infty}^{+\infty}}\rho(v)^{2}\varepsilon_{g}(\rho(v))h(v)\exp\left(-\mathrm{i}\lambda_{1}\left(t-\eta^{(-1)}(v)-\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\right)\;\mathrm{d}v. & \text{(III)}
+\end{array}
+\]
 
 \end_inset
 
@@ -1038,14 +1044,14 @@ Let
 \end_inset
 
  be the full corrective term.
- We conclude with the desired upper bound for the error 
+ We conclude with the desired upper bound for 
 \begin_inset Formula $\varepsilon$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Linearization of source deformations
 \end_layout
 
@@ -1094,15 +1100,36 @@ Let
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left(e_{\theta}\ast h_{\eta}\ast\psi_{\lambda_{1}}\right)=\varepsilon+\sum_{p=1}^{P}\widehat{\psi}\left(\dfrac{p\dot{\theta}(t)}{\lambda_{1}}\right)\times\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right).
+\left(e_{\theta}\ast h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)=\varepsilon+\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)\times\sum_{p=1}^{P}\exp(\mathrm{i}p\dot{\theta}(t))\times\widehat{\psi}\left(\dfrac{p\dot{\theta}(t)}{\lambda_{1}}\right).
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+We start by applying the above lemma:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(e_{\theta}\ast h_{\eta}\ast\psi_{\lambda_{1}}\right)(t) & = & e_{\theta}\ast\left(h_{\eta}\ast\psi_{\lambda_{1}}\right)(t)\\
+ & = & e_{\theta}\ast\left(\psi_{\lambda_{1}}\left(\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\times\hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)+\varepsilon_{h}(t,\lambda_{1})\right),\\
+ & = & \hat{h}\left(\dfrac{\lambda_{1}}{\dot{\eta}(t)}\right)\times\left(e_{\theta}\ast\psi_{\lambda_{1}}\right)\left(\dfrac{\eta(t)}{\dot{\eta}(t)}\right)+\left(e_{\theta}\ast\varepsilon_{h}\right)(t,\lambda_{1}).
+\end{eqnarray*}
+
+\end_inset
+
+We have shown that the corrective term 
+\begin_inset Formula $\varepsilon_{h}$
+\end_inset
+
+ satisfies
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-\dfrac{\vert\varepsilon(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}
+\dfrac{\vert\varepsilon(t,\lambda_{1})\vert}{\lambda_{1}T_{h}\Vert h\Vert_{\infty}}\leq T_{h}^{2}g\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{\ddot{\eta}}{\dot{\eta}^{3}}\right\Vert _{t,T_{h}}+\dot{g}\left(\lambda_{1}\dfrac{\eta(t)}{\dot{\eta}(t)}\right)\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}+\lambda_{1}\left\Vert \ddot{g}\right\Vert _{\infty}\left\Vert \dfrac{1}{\dot{\eta}}\right\Vert _{t,T_{h}}^{2}.
 \]
 
 \end_inset
